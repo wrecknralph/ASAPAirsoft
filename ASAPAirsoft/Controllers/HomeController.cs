@@ -11,16 +11,20 @@ namespace ASAPAirsoft.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
+        }        
 
         public ActionResult FirstTab()
         {
-            return PartialView("_FirstTab");
+            return PartialView("_Guns");
         }
 
         public ActionResult SecondTab()
         {
-            return PartialView("_SecondTab");
+            return PartialView("_Locations");
+        }
+        public ActionResult ThirdTab()
+        {
+            return PartialView("_Gear");
         }
 
         public IActionResult Index()
@@ -29,6 +33,11 @@ namespace ASAPAirsoft.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult AirsoftProfile()
         {
             return View();
         }
