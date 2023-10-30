@@ -2,15 +2,19 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "";
 }
 
 <h1>@ViewData["Title"]</h1>
+<div class="text-center">
+    <img src="~/images/login.png" height="300px" />
+</div>
+<br /><br />
 <div class="row">
     <div class="col-md-4">
         <section>
-            <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
+            <form id="account" method="post">                
+                <h2>Enter your username and password.</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating">
