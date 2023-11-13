@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ASAPAirsoft.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASAPAirsoft.Data
@@ -9,5 +10,9 @@ namespace ASAPAirsoft.Data
             : base(options)
         {
         }
+        public virtual DbSet<AirsoftGearModel> AirsoftGearModel { get; set; } = null!;
+        public virtual DbSet<AirsoftGunModel> AirsoftGunModel { get; set; } = null!;
+        public virtual DbSet<AirsoftLocationModel> AirsoftLocationModel { get; set; } = null!;
+
     }
 }

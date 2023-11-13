@@ -7,8 +7,8 @@ A website that is based around Airsoft
 Markup : * Bullet list
   * install .net core 6.0 sdk
   * first time setup run
-    * update-database -context ApplicationDBContext
-    * update-database -context AirsoftDBContext              
+    * update-database
+    
 
 ## **Helpful Links**
 [ASP.NET MVC] (https://dotnet.microsoft.com/en-us/apps/aspnet/mvc)
