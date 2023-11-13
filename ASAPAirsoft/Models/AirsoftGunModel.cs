@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASAPAirsoft.Models
 {
@@ -10,6 +11,7 @@ namespace ASAPAirsoft.Models
         [Required]
         public string Description { get; set; }
         [Required]
+        [DisplayName("Type (battery, pump, compressed air):")]
         public string Type { get; set; }        
         public string? Link { get; set; }
     }
