@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASAPAirsoft.Data;
 using ASAPAirsoft.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASAPAirsoft.Controllers
 {
+    [Authorize]
     public class LocationController : Controller
     {
         private readonly ApplicationDbContext _context;

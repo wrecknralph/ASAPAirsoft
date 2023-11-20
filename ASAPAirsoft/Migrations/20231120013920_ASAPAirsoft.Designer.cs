@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASAPAirsoft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231113032832_ASAPAirsoft")]
+    [Migration("20231120013920_ASAPAirsoft")]
     partial class ASAPAirsoft
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,9 @@ namespace ASAPAirsoft.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("AirsoftGearModel");
@@ -69,6 +72,9 @@ namespace ASAPAirsoft.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -104,6 +110,9 @@ namespace ASAPAirsoft.Migrations
 
                     b.Property<string>("Rules")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
