@@ -24,9 +24,8 @@ namespace ASAPAirsoft.Controllers
         // GET: Location
         public async Task<IActionResult> Index()
         {
-              return _context.AirsoftLocationModel != null ? 
-                          View(await _context.AirsoftLocationModel.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.AirsoftLocationModel'  is null.");
+            var locationList = _context.AirsoftLocationModel.Where(x => x.Username == User.Identity.Name);
+            return View(locationList);
         }
 
         // GET: Location/Details/5
@@ -38,7 +37,7 @@ namespace ASAPAirsoft.Controllers
             }
 
             var airsoftLocationModel = await _context.AirsoftLocationModel
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.ID == id && m.Username == User.Identity.Name);
             if (airsoftLocationModel == null)
             {
                 return NotFound();
@@ -58,11 +57,17 @@ namespace ASAPAirsoft.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,Rules,City,Country,Address")] AirsoftLocationModel airsoftLocationModel)
+        public async Task<IActionResult> Create([Bind("ID,Name,Description,Rules,City,Country,Address,UserName")] AirsoftLocationModel airsoftLocationModel)
         {
             if (ModelState.IsValid)
             {
                 airsoftLocationModel.ID = Guid.NewGuid();
+
+                if (User.Identity.Name != null)
+                {
+                    airsoftLocationModel.Username = User.Identity.Name;
+                }
+
                 _context.Add(airsoftLocationModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
