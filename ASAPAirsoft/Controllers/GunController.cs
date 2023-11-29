@@ -24,9 +24,8 @@ namespace ASAPAirsoft.Controllers
         // GET: Gun
         public async Task<IActionResult> Index()
         {
-              return _context.AirsoftGunModel != null ? 
-                          View(await _context.AirsoftGunModel.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.AirsoftGunModel'  is null.");
+            var gunsList = _context.AirsoftGunModel.Where(x => x.Username == User.Identity.Name);
+            return View(gunsList);
         }
 
         // GET: Gun/Details/5
@@ -38,7 +37,7 @@ namespace ASAPAirsoft.Controllers
             }
 
             var airsoftGunModel = await _context.AirsoftGunModel
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.ID == id && m.Username == User.Identity.Name);
             if (airsoftGunModel == null)
             {
                 return NotFound();
@@ -58,11 +57,17 @@ namespace ASAPAirsoft.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,Type,Link")] AirsoftGunModel airsoftGunModel)
-        {
+        public async Task<IActionResult> Create([Bind("ID,Name,Description,Type,Link,UserName")] AirsoftGunModel airsoftGunModel)
+        {            
             if (ModelState.IsValid)
             {
                 airsoftGunModel.ID = Guid.NewGuid();
+                
+                if (User.Identity.Name != null)
+                {
+                    airsoftGunModel.Username = User.Identity.Name;
+                }
+                
                 _context.Add(airsoftGunModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
