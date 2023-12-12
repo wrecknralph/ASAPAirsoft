@@ -13,30 +13,10 @@ namespace ASAPAirsoft.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }        
-
-        public ActionResult FirstTab()
-        {
-            return PartialView("_Guns");
-        }
-
-        public ActionResult SecondTab()
-        {
-            return PartialView("_Locations");
-        }
-        public ActionResult ThirdTab()
-        {
-            return PartialView("_Gear");
         }
 
         [AllowAnonymous]
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        public IActionResult Privacy()
         {
             return View();
         }

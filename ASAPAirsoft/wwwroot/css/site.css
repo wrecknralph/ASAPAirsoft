@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: navy;
+    border-color: #1861ac;
+}
+
+.airsoftprofile {
+    color: navy;
+}
