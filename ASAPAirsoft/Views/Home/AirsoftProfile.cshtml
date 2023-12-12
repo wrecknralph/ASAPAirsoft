@@ -1,11 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Airsoft Profile";
+    ViewData["Title"] = "Airsoft Profile";    
 }
 
-<div class="text-center">
+<div class="text-left">
     <p>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Gun" asp-action="Index">Guns</a>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Gear" asp-action="Index">Gears</a>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="Index">Locations</a>
+        <img src="~/images/squad.png" height="300px" />
+    </p>
+    <h2>Update my Airsoft Information</h2>
+    <br />
+    <p>
+        Add, Insert and Update all of your airsoft information.
+    </p>
+    <p>
+        <h3>
+            <a class="nav-link airsoftprofile" asp-area="" asp-controller="Gun" asp-action="Index">My Guns</a>
+            <a class="nav-link airsoftprofile" asp-area="" asp-controller="Gear" asp-action="Index">My Gears</a>
+            <a class="nav-link airsoftprofile" asp-area="" asp-controller="Location" asp-action="Index">My Locations</a>
+        </h3>
     </p>
 </div>
