@@ -11,6 +11,7 @@ namespace ASAPAirsoft.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+<<<<<<< Updated upstream
         }
 
         public ActionResult FirstTab()
@@ -22,16 +23,23 @@ namespace ASAPAirsoft.Controllers
         {
             return PartialView("_SecondTab");
         }
+=======
+        }                
+>>>>>>> Stashed changes
 
         public IActionResult Index()
         {
             return View();
+<<<<<<< Updated upstream
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
+=======
+        }        
+>>>>>>> Stashed changes
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
